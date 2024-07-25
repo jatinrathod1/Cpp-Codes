@@ -102,6 +102,7 @@ bool isPrime(int n) {
 }
 
 // Function to reverse a number
+// 123 -> 321
 void reverseNumber() {
     int n, reversedNumber = 0, remainder;
     cout << "Enter an integer: ";
@@ -115,6 +116,7 @@ void reverseNumber() {
 }
 
 // Function to check if a number is a palindrome
+// 16461 -> 16461
 void palindromeCheck() {
     int n, reversedNumber = 0, remainder, originalNumber;
     cout << "Enter an integer: ";
@@ -237,6 +239,7 @@ void fahrenheitToCelsius() {
 }
 
 // Function to check Armstrong number
+// 1^3 + 5^3 + 3^3 = 153
 void armstrongNumber() {
     int num, originalNum, remainder, n = 0;
     float result = 0.0;
