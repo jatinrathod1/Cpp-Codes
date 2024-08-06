@@ -1,0 +1,270 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+// Function to find the largest element in an array
+int largest(vector<int> &arr, int n)
+{
+    int max = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+// Check if an Array is Sorted
+bool check(vector<int> &nums)
+{
+    int n = nums.size();
+
+    for (int i = 1; i < n; i++)
+    {
+        if (nums[i - 1] > nums[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// 344 Reverse string
+// Input: s = ["h","e","l","l","o"]
+// Output: ["o","l","l","e","h"]
+
+// word count
+// int countWords(string s)
+// {
+//     // code here
+//     if (s == null || s.isEmpty())
+//     {
+//         return 0;
+//     }
+//     String[] words = s.split("\\s+");
+//     return words.length;
+// }
+
+void getLength(char name[])
+{
+    int c = 0;
+    for (int i = 0; name[i] != '\0'; i++)
+    {
+        c++;
+    }
+    cout << c << endl;
+}
+
+// Reverse char array
+void ReverseCharArray(vector<char> &s)
+{
+    int left = 0;
+    int right = s.size() - 1;
+
+    for (char i = left, j = right; i < j; i++, j--)
+    {
+        int temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    }
+    for (int i = 0; i < s.size(); i++)
+    {
+        cout << s[i] << " ";
+    }
+    cout << endl;
+}
+
+// string reverseString(const string &str) {
+//     string reversedStr = str;
+//     int n = reversedStr.length();
+//     for (int i = 0; i < n / 2; i++) {
+//         swap(reversedStr[i], reversedStr[n - i - 1]);
+//     }
+//     return reversedStr;
+// }
+
+// reverse String
+void ReverseString(string s)
+{
+    int left = 0;
+    int right = s.size() - 1;
+
+    for (char i = left, j = right; i < j; i++, j--)
+    {
+        int temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    }
+    for (int i = 0; i < s.size(); i++)
+    {
+        cout << s[i] << " ";
+    }
+    cout << endl;
+}
+
+// revres String Checking palindrome
+void ReverseStringPalindrome(string s)
+{
+    string ts = s;
+    cout << s << endl;
+    cout << ts << endl;
+    int left = 0;
+    int right = s.size() - 1;
+
+    for (char i = left, j = right; i < j; i++, j--)
+    {
+        int temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    }
+    if (s == ts)
+    {
+        cout << "It is a palindrome." << endl;
+    }
+    else
+    {
+        cout << "It is not a palindrome." << endl;
+    }
+}
+
+// Count Word
+// I am jatin
+void countWord(string s3)
+{
+    int left = 0, c = 0;
+    int right = s3.size() - 1;
+    for (int i = left; i < right; i++)
+    {
+        if (s3[i] == ' ')
+        {
+            c++;
+        }
+    }
+    cout << c;
+}
+
+// 3. Find the First Non-Repeating Character
+int firstUniqChar(const string &str)
+{
+    vector<int> count(256, 0);
+    for (char c : str)
+        count[c]++;
+    for (int i = 0; i < str.length(); i++)
+        if (count[str[i]] == 1)
+            return i;
+    return -1;
+}
+
+// 4. Longest Common Prefix
+string longestCommonPrefix(const vector<string> &strs)
+{
+    if (strs.empty())
+        return "";
+    string prefix = strs[0];
+    for (int i = 1; i < strs.size(); i++)
+    {
+        while (strs[i].find(prefix) != 0)
+            prefix = prefix.substr(0, prefix.length() - 1);
+        if (prefix.empty())
+            return "";
+    }
+    return prefix;
+}
+
+// 5. Anagram Check
+bool isAnagram(const string &s1, const string &s2)
+{
+    if (s1.length() != s2.length())
+        return false;
+    vector<int> count(256, 0);
+    for (int i = 0; i < s1.length(); i++)
+    {
+        count[s1[i]]++;
+        count[s2[i]]--;
+    }
+    for (int i : count)
+        if (i != 0)
+            return false;
+    return true;
+}
+
+// // 6. String to Integer (atoi)
+// int myAtoi(const string &str)
+// {
+//     int i = 0, sign = 1, result = 0;
+//     while (i < str.length() && str[i] == ' ')
+//         i++;
+//     if (i < str.length() && (str[i] == '+' || str[i] == '-'))
+//         sign = (str[i++] == '-') ? -1 : 1;
+//     while (i < str.length() && isdigit(str[i]))
+//     {
+//         if (result > INT_MAX / 10 || (result == INT_MAX / 10 && str[i] - '0' > 7))
+//             return (sign == 1) ? INT_MAX : INT_MIN;
+//         result = result * 10 + (str[i++] - '0');
+//     }
+//     return result * sign;
+// }
+
+// // 7. Longest Substring Without Repeating Characters
+// int lengthOfLongestSubstring(const string &str)
+// {
+//     vector<int> index(256, -1);
+//     int maxLength = 0, start = 0;
+//     for (int i = 0; i < str.length(); i++)
+//     {
+//         if (index[str[i]] >= start)
+//             start = index[str[i]] + 1;
+//         index[str[i]] = i;
+//         maxLength = max(maxLength, i - start + 1);
+//     }
+//     return maxLength;
+// }
+
+int main()
+{
+    // Lower Conversion
+    char ch;
+    cin >> ch;
+    char lower_ch = ch + 32;
+    cout << lower_ch << endl;
+
+    vector<char> ja = {'H', 'e', 'l', 'l', 'o'};
+    string s = "jatin";
+    ReverseCharArray(ja);
+    ReverseString(s);
+    ReverseStringPalindrome("madam");
+
+    string s1 = "abc";
+    string s2 = "acb";
+    cout << (isAnagram(s1, s2) ? "Yes" : "No") << endl;
+
+    string s4 = "I am Jatin jhd jhbd";
+    countWord(s4);
+
+    cout << firstUniqChar("aas");
+
+    char name[20];
+    cout << "Enter the name: " << endl;
+    cin >> name;
+
+    cout << name << endl;
+    getLength(name);
+    // countWords("jatin sahil sa");
+
+    vector<int> nums = {1, 2, 3, 4, 5};
+    if (check(nums))
+        cout << "The array is sorted." << endl;
+    else
+        cout << "The array is not sorted." << endl;
+
+    vector<int> arr = {1, 8, 7, 56, 90};
+    int n = arr.size();
+
+    int result = largest(arr, n);
+    cout << "The largest element is: " << result << endl;
+
+    return 0;
+}
