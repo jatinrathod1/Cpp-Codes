@@ -1,0 +1,356 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int sortArr(int a[], int size)
+{
+    int i, j, t = 0;
+
+    cout << size << endl;
+    for (i = 0; i < size - 1; i++)
+    {
+        for (j = i + 1; j < size; j++)
+        {
+            if (a[i] > a[j])
+            {
+                t = a[i];
+                a[i] = a[j];
+                a[j] = t;
+            }
+        }
+    }
+
+    cout << "Sorted Array is : ";
+
+    for (i = 0; i < size; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+int stringSort(string s[], int n)
+{
+    int i, j;
+
+    cout << n << endl;
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = i + 1; j < n; j++)
+        {
+            if (s[i] > s[j])
+            {
+                string t = s[i];
+                s[i] = s[j];
+                s[j] = t;
+            }
+        }
+    }
+
+    cout << "String Array is : ";
+
+    for (i = 0; i < n; i++)
+    {
+        cout << s[i] << " ";
+    }
+    cout << endl;
+}
+
+
+
+int sumArray(int a[], int n)
+{
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum = sum + a[i];
+    }
+    cout << endl;
+
+    return sum;
+}
+
+void printGrid(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+double calculateAverage(int arr[], int size)
+{
+    int sum = 0;
+    for (int i = 0; i < size; i++)
+    {
+        sum += arr[i];
+    }
+    cout << endl;
+
+    return static_cast<double>(sum) / size;
+}
+
+// Find the index of an array element.
+int findIndex(int a[], int n, int num)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == num)
+        {
+            cout << "At " << i << " Index.";
+        }
+    }
+    cout << endl;
+}
+
+//  Insert an element at a specific position in an array.
+void insertSpecific(int a[], int n)
+{
+    int count = false;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] = n)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                a[j + 1] = a[j];
+            }
+            n++;
+        }
+    }
+}
+
+// Remove a specific element from an array.
+int removespecific(int a[], int n, int num)
+{
+    int found = false;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == num)
+        {
+            found = true;
+            for (int j = i; j < n - 1; j++)
+            {
+                a[j] = a[j + 1];
+            }
+            n--;
+            break;
+        }
+    }
+
+    if (found)
+    {
+        cout << "Array after deletion: ";
+        for (int i = 0; i < n; i++)
+        {
+            cout << a[i] << " ";
+        }
+    }
+    else
+    {
+        cout << "Number " << num << " not found in the array." << endl;
+    }
+    cout << endl;
+
+    return 0;
+}
+
+// Copy an array by iterating the array.
+void copyArr(int a[], int b[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        b[i] = a[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << b[i] << " ";
+    }
+    cout << endl;
+}
+
+// Find the maximum and minimum value of an array.
+void maxmin(int a[], int n)
+{
+    int maxele = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] > maxele)
+        {
+            maxele = a[i];
+        }
+    }
+    cout << "Max is " << maxele << endl;
+
+    int minele = a[0];
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] < minele)
+        {
+            minele = a[i];
+        }
+    }
+    cout << "Min is " << minele << endl;
+}
+
+// Reverse an array of integer values.
+void reverseArray(int a[], int n)
+{
+    for (int i = 0, j = n - 1; i < j; i++, j--)
+    {
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+
+// Find duplicate values in an array of integer values.
+// same like Simple sort Array
+void findDuplicates(int a[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] == a[j])
+            {
+                cout << a[i] << " is a duplicate value." << endl;
+            }
+        }
+    }
+}  
+
+// Find duplicate values in an array of string values.
+void findStringDuplicates(string s[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (s[i] == s[j])
+            {
+                cout << s[i] << " is a duplicate value." << endl;
+            }
+        }
+    }
+}
+
+// Find common elements between two arrays.
+// sort array type que
+
+void findCommonElements(int a1[], int x, int a2[], int n)
+{
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (a1[i] == a2[j])
+            {
+                cout << a1[i] << " ";
+            }
+        }
+    }
+    cout << endl;
+}
+
+// Find common elements between two arrays (string values).
+void findStringCommonElements(string a1[], int x, string a2[], int n)
+{
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (a1[i] == a2[j])
+            {
+                cout << a1[i] << " ";
+            }
+        }
+    }
+    cout << endl;
+}
+
+// Remove duplicate elements from an array.
+void removeDuplicates(int arr[], int size)
+{
+    int result[5];
+    int resIndex = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        bool isDuplicate = false;
+
+        // Check if the element is already in the result array
+        for (int j = 0; j < size; j++)
+        {
+            if (arr[i] == result[j])
+            {
+                isDuplicate = true;
+                break;
+            }
+        }
+
+        // If the element is not a duplicate, add it to the result array
+        if (!isDuplicate)
+        {
+            result[resIndex] = arr[i];
+            resIndex++;
+        }
+    }
+
+    // Print the result array
+    cout << "Array without duplicates: ";
+    for (int i = 0; i < resIndex; i++)
+    {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int i, j, t, a[] = {6, 8, 2, 4, 1, 3, 3};
+    int x = sizeof(a) / sizeof(int);
+
+    int b[6];
+    int c[] = {4, 5, 6, 7, 9, 5};
+
+    string s[] = {"raider", "hero", "mt15", "fz-s", "fz-s"};
+    int n = sizeof(s) / sizeof(s[0]);
+    string d[] = {"bullet", "hornet", "yamaha", "jawa", "mt15"};
+    int m = sizeof(d) / sizeof(d[0]);
+
+    sortArr(a, x);
+    stringSort(s, n);
+
+    // return sum
+    cout << sumArray(a, x) << endl;
+
+    printGrid(4);
+
+    cout << calculateAverage(a, x) << endl;
+
+    findIndex(a, x, 8);
+    removespecific(a, x, 6);
+
+    copyArr(a, b, x);
+    maxmin(a, x);
+
+    reverseArray(a, x);
+    findDuplicates(a, x);
+    findStringDuplicates(s, n);
+    findCommonElements(a, x, c, x);
+    findStringCommonElements(s, n, d, m);
+    removeDuplicates(c, x);
+
+    return 0;
+}
