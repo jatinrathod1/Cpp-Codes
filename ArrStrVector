@@ -21,7 +21,6 @@ int largest(vector<int> &arr, int n)
 bool check(vector<int> &nums)
 {
     int n = nums.size();
-
     for (int i = 1; i < n; i++)
     {
         if (nums[i - 1] > nums[i])
@@ -223,6 +222,68 @@ bool isAnagram(const string &s1, const string &s2)
 //     return maxLength;
 // }
 
+// Max Consecutive ones
+int findMaxConsecutiveOnes(vector<int> &nums)
+{
+    int n = nums.size();
+    int c = 0, maxi = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] == 1)
+        {
+            c++;
+            // cout << c << " ";
+            maxi = max(maxi, c);
+        }
+        else
+        {
+            c = 0;
+        }
+    }
+    cout << "Max is " << maxi << "." << endl;
+};
+
+// Single Number
+// 1,2,1,2,3 -> return 3;
+int singleNumber(vector<int> &nums)
+{
+    int ans = 0;
+    int n = nums.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        ans = nums[i] ^ ans;
+    }
+    return ans;
+}
+
+// Moves Zeroes to end
+void moveZeroes(vector<int> &nums)
+{
+    int j = 0;
+    int n = nums.size();
+
+    // Move all non-zero elements to the front of the array
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] != 0)
+        {
+            nums[j++] = nums[i];
+        }
+    }
+
+    // Fill the rest of the array with zeros
+    while (j < n)
+    {
+        nums[j++] = 0;
+    }
+    for (int i = 0; i < nums.size(); i++)
+    {
+        cout << nums[i] << " ";
+    }
+}
+
+
 int main()
 {
     // Lower Conversion
@@ -262,6 +323,12 @@ int main()
 
     vector<int> arr = {1, 8, 7, 56, 90};
     int n = arr.size();
+
+    vector<int> arr = {1, 1, 1, 0, 1, 1};
+    findMaxConsecutiveOnes(arr);
+
+    vector<int> arr1 = {0, 1, 0, 3, 12};
+    moveZeroes(arr1);
 
     int result = largest(arr, n);
     cout << "The largest element is: " << result << endl;
